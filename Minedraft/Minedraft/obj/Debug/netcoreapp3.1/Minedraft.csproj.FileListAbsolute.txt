@@ -1,0 +1,13 @@
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\bin\Debug\netcoreapp3.1\Minedraft.exe
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\bin\Debug\netcoreapp3.1\Minedraft.deps.json
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\bin\Debug\netcoreapp3.1\Minedraft.runtimeconfig.json
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\bin\Debug\netcoreapp3.1\Minedraft.runtimeconfig.dev.json
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\bin\Debug\netcoreapp3.1\Minedraft.dll
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\bin\Debug\netcoreapp3.1\Minedraft.pdb
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.csprojAssemblyReference.cache
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.AssemblyInfoInputs.cache
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.AssemblyInfo.cs
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.csproj.CoreCompileInputs.cache
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.dll
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.pdb
+E:\programing\school\2nd\Object Oriented Programing\Minedraft\Minedraft\obj\Debug\netcoreapp3.1\Minedraft.genruntimeconfig.cache

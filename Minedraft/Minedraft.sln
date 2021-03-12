@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minedraft", "Minedraft\Minedraft.csproj", "{8AD98A7A-185F-41E1-9EC4-7012D75D5EF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AD98A7A-185F-41E1-9EC4-7012D75D5EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD98A7A-185F-41E1-9EC4-7012D75D5EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD98A7A-185F-41E1-9EC4-7012D75D5EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD98A7A-185F-41E1-9EC4-7012D75D5EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92D828A2-E041-49C9-B415-04A579BD662C}
+	EndGlobalSection
+EndGlobal
