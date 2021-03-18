@@ -13,6 +13,8 @@
         private TyreFactory tyreFactory;
         
         private List<Driver> drivers = new List<Driver>();
+        private List<Driver> failedDrivers = new List<Driver>();
+
         private StringBuilder stringBuilder;
         private int currentLap = 1;
         private int totalLaps = 0;
@@ -96,6 +98,11 @@
             string result = "";
             this.stringBuilder.Clear();
             int numberOfLaps = int.Parse(commandArgs[0]);
+            int counter = 0;
+
+            List<Driver> Sorted = drivers;
+            Sorted.OrderBy(d => d.TotalTime);
+
             Driver firstDriver = drivers[0];
             currentLap += numberOfLaps;
 
@@ -125,7 +132,129 @@
             {
                 item.TotalTime += (60 / trackLength / item.Speed) * numberOfLaps;
                 item.Car.FuelAmount -= trackLength * item.FuelConsumptionPerKm;
-                item.Car.Tyre.Degradation -= item.Car.Tyre.Hardness;
+                try
+                {
+                    item.Car.Tyre.Degradation -= item.Car.Tyre.Hardness;
+                }
+                catch(Exception ex)
+                {
+                    item.failureReason = ex.Message;
+                    failedDrivers.Add(item);
+                    drivers.Remove(item);
+                }
+                
+                counter++;
+            }
+
+            for(int i = 0; i < counter; i ++)
+            {
+
+                if(Sorted[i].TotalTime < Sorted[i + 1].TotalTime && Sorted[i].overtaked == false)
+                {
+                    switch(Sorted[i].Type)
+                    {
+                        case "Agressive":
+                            {
+
+                                if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 3 && Sorted[i].Car.Tyre.Type == "Ultrasoft")
+                                {
+                                    if (currentWeather == "Foggy")
+                                    {
+                                        Sorted[i].failureReason = "Crashed";
+                                        failedDrivers.Add(Sorted[i]);
+                                        Sorted.Remove(Sorted[i]);
+
+                                        break;
+                                    }
+                                    Sorted[i].overtaked = true;
+
+                                    var buffer = Sorted[i];
+                                    Sorted[i] = Sorted[i + 1];
+                                    Sorted[i + 1] = buffer;
+
+                                    Sorted[i].TotalTime += 3;
+                                    Sorted[i + 1].TotalTime -= 3;
+                                    Sorted[i].overtaked = false;
+                                }
+                                else if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 2)
+                                {
+                                    if (currentWeather == "Foggy")
+                                    {
+                                        Sorted[i].failureReason = "Crashed";
+                                        failedDrivers.Add(Sorted[i]);
+                                        Sorted.Remove(Sorted[i]);
+
+                                        break;
+                                    }
+                                    Sorted[i].overtaked = true;
+
+                                    var buffer = Sorted[i];
+                                    Sorted[i] = Sorted[i + 1];
+                                    Sorted[i + 1] = buffer;
+
+                                    Sorted[i].TotalTime += 2;
+                                    Sorted[i + 1].TotalTime -= 2;
+                                    Sorted[i].overtaked = false;
+                                }
+                                result = stringBuilder.AppendLine($"{Sorted[i+1].Name} has overtaken {Sorted[i]} on lap {currentLap}.").ToString();
+
+                                break;
+                            }
+                        case "Endurance":
+                            {
+                                
+
+                                if (Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 3 && Sorted[i].Car.Tyre.Type == "Hard")
+                                {
+                                    if (currentWeather == "Rainy")
+                                    {
+                                        Sorted[i].failureReason = "Crashed";
+                                        failedDrivers.Add(Sorted[i]);
+                                        Sorted.Remove(Sorted[i]);
+
+                                        break;
+                                    }
+                                    Sorted[i].overtaked = true;
+
+                                    var buffer = Sorted[i];
+                                    Sorted[i] = Sorted[i + 1];
+                                    Sorted[i + 1] = buffer;
+
+                                    Sorted[i].TotalTime += 3;
+                                    Sorted[i + 1].TotalTime -= 3;
+                                    Sorted[i].overtaked = false;
+                                }
+                                else if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 2)
+                                {
+                                    if (currentWeather == "Rainy")
+                                    {
+                                        Sorted[i].failureReason = "Crashed";
+                                        failedDrivers.Add(Sorted[i]);
+                                        Sorted.Remove(Sorted[i]);
+
+                                        break;
+                                    }
+                                    Sorted[i].overtaked = true;
+
+                                    var buffer = Sorted[i];
+                                    Sorted[i] = Sorted[i + 1];
+                                    Sorted[i + 1] = buffer;
+
+                                    Sorted[i].TotalTime += 2;
+                                    Sorted[i + 1].TotalTime -= 2;
+                                    Sorted[i].overtaked = false;
+                                }
+
+                                result = stringBuilder.AppendLine($"{Sorted[i + 1].Name} has overtaken {Sorted[i]} on lap {currentLap}.").ToString();
+
+                                break;
+                            }
+                    }
+                    
+
+                    
+                }
+
             }
 
             return result;

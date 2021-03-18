@@ -7,6 +7,8 @@ namespace GrandPrix.Models.Drivers
     {
 
         private double speed;
+        public bool overtaked = false;
+        public string failureReason = null;
         TyreFactory tyreFactory;
         
 
