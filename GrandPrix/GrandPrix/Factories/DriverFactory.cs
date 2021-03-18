@@ -19,19 +19,23 @@ namespace GrandPrix.Factories
             double fuelAmount = double.Parse(commandArgs[3]);
             string tyreType = commandArgs[4];
             double tyreHardness = double.Parse(commandArgs[5]);
+            double grip = double.Parse(commandArgs[6]);
 
             switch(type)
             {
                 case "Agressive":
                     {
-                        driver = new AgressiveDriver(name, hp, fuelAmount, tyreType, tyreHardness)
+                        driver = new AgressiveDriver(name, hp, fuelAmount, tyreType, tyreHardness, grip);
                         break;
                     }
                 case "Endurance":
                     {
+                        driver = new EnduranceDriver(name, hp, fuelAmount, tyreType, tyreHardness, grip);
                         break;
                     }
             }
+
+            return driver;
         }
     }
 }

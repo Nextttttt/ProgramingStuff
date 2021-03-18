@@ -1,0 +1,4 @@
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.csprojAssemblyReference.cache
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.AssemblyInfoInputs.cache
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.AssemblyInfo.cs
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.csproj.CoreCompileInputs.cache

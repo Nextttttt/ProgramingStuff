@@ -10,15 +10,16 @@ namespace GrandPrix.Models.Tyres
         private const byte MIN_DEGRADATION = 30;
 
         private const string BLOWN_UP_TYRE = "Tyre has blown up!";
-        public UltrasoftTyre(double hardness)
+        public UltrasoftTyre(double hardness, double grip)
             :base(hardness)
         {
             this.Name = "Ultrasoft";
             this.Degradation = MAX_DEGRADATION;
+            this.Grip = grip;
         }
 
 
-        override public double Degradation 
+        override public double Degradation
         {
             get
             {
@@ -27,12 +28,14 @@ namespace GrandPrix.Models.Tyres
             set
             {
                 degradation = value;
-                if(degradation < MIN_DEGRADATION)
+                if (degradation < MIN_DEGRADATION)
                 {
                     throw new Exception(BLOWN_UP_TYRE);
                 }
             }
         }
+            public double Grip { get; set; }
+    
 
         public override string Type => "Ultrasoft";
     }

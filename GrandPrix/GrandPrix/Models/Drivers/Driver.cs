@@ -1,20 +1,24 @@
 ﻿
 namespace GrandPrix.Models.Drivers
 {
-
+    using GrandPrix.Models.Tyres;
+    using GrandPrix.Factories;
     public abstract class Driver : BaseModel
     {
 
         private double speed;
-
+        TyreFactory tyreFactory;
         
 
-        public Driver(string name,double totalTime, Car car)
+        public Driver(string name,int hp,double fuelAmount, string tyreType, double tyreHardness, double grip)
             :base(name)
         {
 
-            this.TotalTime = totalTime;
-            this.Car = car;
+            this.Car.HP = hp;
+            this.Car.FuelAmount = fuelAmount;
+
+            Car.Tyre = tyreFactory.Create(tyreType, tyreHardness, grip);
+
 
         }
 
