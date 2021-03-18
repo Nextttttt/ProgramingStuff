@@ -2,3 +2,12 @@ E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debu
 E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.AssemblyInfoInputs.cache
 E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.AssemblyInfo.cs
 E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.csproj.CoreCompileInputs.cache
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\bin\Debug\netcoreapp3.1\GrandPrix.exe
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\bin\Debug\netcoreapp3.1\GrandPrix.deps.json
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\bin\Debug\netcoreapp3.1\GrandPrix.runtimeconfig.json
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\bin\Debug\netcoreapp3.1\GrandPrix.runtimeconfig.dev.json
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\bin\Debug\netcoreapp3.1\GrandPrix.dll
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\bin\Debug\netcoreapp3.1\GrandPrix.pdb
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.dll
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.pdb
+E:\programing\school\2nd\Object Oriented Programing\GrandPrix\GrandPrix\obj\Debug\netcoreapp3.1\GrandPrix.genruntimeconfig.cache

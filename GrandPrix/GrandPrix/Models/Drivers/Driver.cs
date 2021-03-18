@@ -16,9 +16,7 @@ namespace GrandPrix.Models.Drivers
             :base(name)
         {
 
-            this.Car.HP = hp;
-            this.Car.FuelAmount = fuelAmount;
-
+            this.Car = new Car(hp, fuelAmount, tyreType, tyreHardness, grip);
             Car.Tyre = tyreFactory.Create(tyreType, tyreHardness, grip);
 
 

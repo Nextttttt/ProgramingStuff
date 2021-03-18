@@ -23,7 +23,7 @@ namespace GrandPrix.Factories
 
             switch(type)
             {
-                case "Agressive":
+                case "Aggressive":
                     {
                         driver = new AgressiveDriver(name, hp, fuelAmount, tyreType, tyreHardness, grip);
                         break;

@@ -16,7 +16,7 @@
         private List<Driver> failedDrivers = new List<Driver>();
 
         private StringBuilder stringBuilder;
-        private int currentLap = 1;
+        private int currentLap = 0;
         private int totalLaps = 0;
         private int trackLength = 0;
         private string currentWeather = "Sunny";
@@ -30,6 +30,11 @@
         }
 
         private const string GREATER_LAPS_ERROR_MASSAGE = "There is no time!";
+        private const int TWO_SECONDS = 2;
+        private const int THREE_SECONDS = 3;
+        private const string WEATHER_FOGGY = "Foggy";
+        private const string WEATHER_SUNNY = "Sunny";
+        private const string WEATHER_RAINY = "Rainy";
 
         public void SetTrackInfo(int lapsNumber, int trackLength)
         {
@@ -51,7 +56,10 @@
             {
                 this.stringBuilder.Append(ex.Message);
             }
-            
+            foreach(var item in drivers)
+            {
+                Console.WriteLine(item.Name);
+            }
         }
 
         public void DriverBoxes(List<string> commandArgs)
@@ -103,12 +111,14 @@
             List<Driver> Sorted = drivers;
             Sorted.OrderBy(d => d.TotalTime);
 
-            Driver firstDriver = drivers[0];
+           
             currentLap += numberOfLaps;
 
             if(currentLap == totalLaps)
             {
-                result = this.stringBuilder.AppendLine($"{drivers[0].Name} wins the race for {drivers[0].TotalTime} seconds.").ToString();
+                string firstDriver = drivers.First().Name;
+                double firstDriverTotalTime = drivers.First().TotalTime;
+                result = this.stringBuilder.AppendLine($"Finish {firstDriver} wins the race for {firstDriverTotalTime} seconds.").ToString();
                 return result;
             }
 
@@ -156,9 +166,9 @@
                         case "Agressive":
                             {
 
-                                if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 3 && Sorted[i].Car.Tyre.Type == "Ultrasoft")
+                                if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= THREE_SECONDS && Sorted[i].Car.Tyre.Type == "Ultrasoft")
                                 {
-                                    if (currentWeather == "Foggy")
+                                    if (currentWeather == WEATHER_FOGGY)
                                     {
                                         Sorted[i].failureReason = "Crashed";
                                         failedDrivers.Add(Sorted[i]);
@@ -172,13 +182,13 @@
                                     Sorted[i] = Sorted[i + 1];
                                     Sorted[i + 1] = buffer;
 
-                                    Sorted[i].TotalTime += 3;
-                                    Sorted[i + 1].TotalTime -= 3;
+                                    Sorted[i].TotalTime += THREE_SECONDS;
+                                    Sorted[i + 1].TotalTime -= THREE_SECONDS;
                                     Sorted[i].overtaked = false;
                                 }
-                                else if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 2)
+                                else if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= TWO_SECONDS)
                                 {
-                                    if (currentWeather == "Foggy")
+                                    if (currentWeather == WEATHER_FOGGY)
                                     {
                                         Sorted[i].failureReason = "Crashed";
                                         failedDrivers.Add(Sorted[i]);
@@ -192,8 +202,8 @@
                                     Sorted[i] = Sorted[i + 1];
                                     Sorted[i + 1] = buffer;
 
-                                    Sorted[i].TotalTime += 2;
-                                    Sorted[i + 1].TotalTime -= 2;
+                                    Sorted[i].TotalTime += TWO_SECONDS;
+                                    Sorted[i + 1].TotalTime -= TWO_SECONDS;
                                     Sorted[i].overtaked = false;
                                 }
                                 result = stringBuilder.AppendLine($"{Sorted[i+1].Name} has overtaken {Sorted[i]} on lap {currentLap}.").ToString();
@@ -204,9 +214,9 @@
                             {
                                 
 
-                                if (Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 3 && Sorted[i].Car.Tyre.Type == "Hard")
+                                if (Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= THREE_SECONDS && Sorted[i].Car.Tyre.Type == "Hard")
                                 {
-                                    if (currentWeather == "Rainy")
+                                    if (currentWeather == WEATHER_RAINY)
                                     {
                                         Sorted[i].failureReason = "Crashed";
                                         failedDrivers.Add(Sorted[i]);
@@ -220,13 +230,13 @@
                                     Sorted[i] = Sorted[i + 1];
                                     Sorted[i + 1] = buffer;
 
-                                    Sorted[i].TotalTime += 3;
-                                    Sorted[i + 1].TotalTime -= 3;
+                                    Sorted[i].TotalTime += THREE_SECONDS;
+                                    Sorted[i + 1].TotalTime -= THREE_SECONDS;
                                     Sorted[i].overtaked = false;
                                 }
-                                else if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= 2)
+                                else if(Sorted[i + 1].TotalTime - Sorted[i].TotalTime <= TWO_SECONDS)
                                 {
-                                    if (currentWeather == "Rainy")
+                                    if (currentWeather == WEATHER_RAINY)
                                     {
                                         Sorted[i].failureReason = "Crashed";
                                         failedDrivers.Add(Sorted[i]);
@@ -240,8 +250,8 @@
                                     Sorted[i] = Sorted[i + 1];
                                     Sorted[i + 1] = buffer;
 
-                                    Sorted[i].TotalTime += 2;
-                                    Sorted[i + 1].TotalTime -= 2;
+                                    Sorted[i].TotalTime += TWO_SECONDS;
+                                    Sorted[i + 1].TotalTime -= TWO_SECONDS;
                                     Sorted[i].overtaked = false;
                                 }
 
@@ -281,11 +291,29 @@
             return result;
         }
         
-        void ChangeWeather(List<string> commandArgs)
+        public void ChangeWeather(List<string> commandArgs)
         {
             //TODO: Add some logic here …
             string weather = commandArgs[0];
-            currentWeather = weather;
+            switch(weather)
+            {
+                case "Foggy":
+                    {
+                        currentWeather = WEATHER_FOGGY;
+                        break;
+                    }
+                case "Rainy":
+                    {
+                        currentWeather = WEATHER_RAINY;
+                        break;
+                    }
+                case "Sunny":
+                    {
+                        currentWeather = WEATHER_SUNNY;
+                        break;
+                    }
+            }
+            
         }
 
     }
