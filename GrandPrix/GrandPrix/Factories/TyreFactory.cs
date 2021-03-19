@@ -13,20 +13,17 @@ namespace GrandPrix.Factories
         public Tyre Create(string tyreType, double tyreHardness, double grip)
         {
             Tyre tyre = null;
-            switch(tyreType)
-            {
-                case "Ultrasoft":
-                    {
-                        tyre = new UltrasoftTyre(tyreHardness, grip);
-                        break;
-                    }
-                case "Hard":
-                    {
-                        tyre = new HardTyre(tyreHardness);
-                        break;
-                    }
-            }
+                             
+                       tyre = new UltrasoftTyre(tyreHardness, grip);
+                      
+            return tyre;
 
+        }
+        public Tyre Create(string tyreType, double tyreHardness)
+        {
+            Tyre tyre = null;
+                 
+                        tyre = new HardTyre(tyreHardness);
 
             return tyre;
 

@@ -18,6 +18,14 @@ namespace GrandPrix.Models.Drivers
             this.Speed *= SPEED_MULTIPLIER;
 
         }
+        public AgressiveDriver(string name, int hp, double fuelAmount, string tyreType, double tyreHardness)
+            : base(name, hp, fuelAmount, tyreType, tyreHardness)
+        {
+
+            this.FuelConsumptionPerKm = FUEL_CONSUMPTION_INDEX;
+            this.Speed *= SPEED_MULTIPLIER;
+
+        }
 
         public override string Type => "Agressive";
 

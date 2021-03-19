@@ -12,6 +12,12 @@ namespace GrandPrix.Models.Drivers
             : base(name, hp, fuelAmount, tyreType,tyreHardness, grip)
         {
 
+            this.FuelConsumptionPerKm = FUEL_CONSUMPTION_INDEX;
+
+        }
+        public EnduranceDriver(string name, int hp, double fuelAmount, string tyreType, double tyreHardness)
+            : base(name, hp, fuelAmount, tyreType, tyreHardness)
+        {
 
             this.FuelConsumptionPerKm = FUEL_CONSUMPTION_INDEX;
 

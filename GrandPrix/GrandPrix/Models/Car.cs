@@ -17,9 +17,17 @@ namespace GrandPrix.Models
         private const string OUT_OF_FUEL = "The car is out of fuel, the driver cannot continue the race!";
         public Car(int hp, double fuelAmount, string tyreType, double tyreHardness, double grip)
         {
+            this.tyreFactory = new TyreFactory();
             this.HP = hp;
             this.FuelAmount = fuelAmount;
             this.Tyre = tyreFactory.Create(tyreType, tyreHardness, grip);
+        }
+        public Car(int hp, double fuelAmount, string tyreType, double tyreHardness)
+        {
+            this.tyreFactory = new TyreFactory();
+            this.HP = hp;
+            this.FuelAmount = fuelAmount;
+            this.Tyre = tyreFactory.Create(tyreType, tyreHardness);
         }
         public int HP { get; set; }
         public double FuelAmount 

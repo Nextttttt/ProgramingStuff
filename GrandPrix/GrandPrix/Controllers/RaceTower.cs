@@ -12,6 +12,7 @@
         private DriverFactory driverFactory;
         private TyreFactory tyreFactory;
         
+
         private List<Driver> drivers = new List<Driver>();
         private List<Driver> failedDrivers = new List<Driver>();
 
@@ -24,6 +25,7 @@
         public RaceTower()
         {
             this.driverFactory = new DriverFactory();
+            this.tyreFactory = new TyreFactory();
             this.drivers = new List<Driver>();
             this.stringBuilder = new StringBuilder();
             totalLaps = 0;
@@ -42,7 +44,7 @@
             this.totalLaps = lapsNumber;
             this.trackLength = trackLength;
 
-        }
+        } //OK
         public void RegisterDriver(List<string> commandArgs)
         {
             this.stringBuilder.Clear();
@@ -56,14 +58,12 @@
             {
                 this.stringBuilder.Append(ex.Message);
             }
-            foreach(var item in drivers)
-            {
-                Console.WriteLine(item.Name);
-            }
-        }
+           
+        } //OK
 
         public void DriverBoxes(List<string> commandArgs)
         {
+            stringBuilder.Clear();
             //TODO: Add some logic here …
             string reasonToBox = commandArgs[0];
             string driverName  = commandArgs[1];
@@ -75,14 +75,25 @@
                     {
                         string tyreType = commandArgs[2];
                         double tyreHardness = double.Parse(commandArgs[3]);
-                        double grip = double.Parse(commandArgs[4]);
+                        if(tyreType == "Ultrasoft")
+                        { 
+                            double grip = double.Parse(commandArgs[4]);
+                        
 
                         foreach (var item in drivers.Where(x => x.Name == driverName))
                         {
                             item.Car.Tyre = tyreFactory.Create(tyreType, tyreHardness, grip);
                             item.TotalTime += 20;
                         }
-
+                        }
+                        else
+                        {
+                            foreach (var item in drivers.Where(x => x.Name == driverName))
+                            {
+                                item.Car.Tyre = tyreFactory.Create(tyreType, tyreHardness);
+                                item.TotalTime += 20;
+                            }
+                        }
                         break;
                     }
                 case "Refuel":
@@ -98,7 +109,7 @@
                         break;
                     }
             }
-        }
+        } //OK
 
         public string CompleteLaps(List<string> commandArgs)
         {
@@ -108,19 +119,15 @@
             int numberOfLaps = int.Parse(commandArgs[0]);
             int counter = 0;
 
+            drivers.Sort((x, y) => x.TotalTime.CompareTo(y.TotalTime));
+
             List<Driver> Sorted = drivers;
-            Sorted.OrderBy(d => d.TotalTime);
+            Sorted.OrderByDescending(d => d.TotalTime);
 
            
             currentLap += numberOfLaps;
 
-            if(currentLap == totalLaps)
-            {
-                string firstDriver = drivers.First().Name;
-                double firstDriverTotalTime = drivers.First().TotalTime;
-                result = this.stringBuilder.AppendLine($"Finish {firstDriver} wins the race for {firstDriverTotalTime} seconds.").ToString();
-                return result;
-            }
+            
 
             try
             {
@@ -132,11 +139,11 @@
             catch (Exception ex)
             {
 
+                currentLap -= numberOfLaps;
                 result = this.stringBuilder.AppendLine(ex.Message).ToString();
                 return result;
 
             }
-            
 
             foreach (var item in drivers)
             {
@@ -154,9 +161,11 @@
                 }
                 
                 counter++;
+
             }
 
-            for(int i = 0; i < counter; i ++)
+
+            for (int i = 0; i < counter-1; i ++)
             {
 
                 if(Sorted[i].TotalTime < Sorted[i + 1].TotalTime && Sorted[i].overtaked == false)
@@ -206,7 +215,7 @@
                                     Sorted[i + 1].TotalTime -= TWO_SECONDS;
                                     Sorted[i].overtaked = false;
                                 }
-                                result = stringBuilder.AppendLine($"{Sorted[i+1].Name} has overtaken {Sorted[i]} on lap {currentLap}.").ToString();
+                                result = stringBuilder.AppendLine($"{Sorted[i+1].Name} has overtaken {Sorted[i].Name} on lap {currentLap}.").ToString();
 
                                 break;
                             }
@@ -267,16 +276,25 @@
 
             }
 
+            if (currentLap == totalLaps)
+            {
+                stringBuilder.Clear();
+                string firstDriver = drivers.First().Name;
+                double firstDriverTotalTime = drivers.First().TotalTime;
+                result = this.stringBuilder.AppendLine($"Finish {firstDriver} wins the race for {firstDriverTotalTime} seconds.").ToString();
+                return result;
+            }
+
             return result;
-        }
+        } // OK
 
         public string GetLeaderboard()
         {
-
+            this.stringBuilder.Clear();
             string result;
             int position = 0;
 
-            drivers.OrderByDescending(d => d.TotalTime);
+            drivers.Sort((x, y) => x.TotalTime.CompareTo(y.TotalTime));
 
             //TODO: Add some logic here …
             this.stringBuilder.Clear();
@@ -289,7 +307,7 @@
 
             result = this.stringBuilder.ToString();
             return result;
-        }
+        } //OK
         
         public void ChangeWeather(List<string> commandArgs)
         {
@@ -314,7 +332,7 @@
                     }
             }
             
-        }
+        } //OK
 
     }
 }
