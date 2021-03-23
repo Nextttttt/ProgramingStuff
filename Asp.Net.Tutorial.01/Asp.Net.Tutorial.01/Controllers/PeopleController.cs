@@ -36,6 +36,7 @@
             newPerson.Age = model.Age;
 
             dbContext.People.Add(newPerson);
+            dbContext.SaveChanges();
 
             return RedirectToAction("Index");
         }
