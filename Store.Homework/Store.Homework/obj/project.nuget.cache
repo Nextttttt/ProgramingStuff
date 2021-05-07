@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hsKo7oBWqC7vi2+9g7vs7MlqhSTKkyeP+a6DZwmI+Bje36ruI9d5+w84f0TYT8KOkbUaQAtYGMBlfVMsz9yCjQ==",
+  "success": true,
+  "projectFilePath": "E:\\programing\\school\\2nd\\Object Oriented Programing\\Store.Homework\\Store.Homework\\Store.Homework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\UserSX\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}

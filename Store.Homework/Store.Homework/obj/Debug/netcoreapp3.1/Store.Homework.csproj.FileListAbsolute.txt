@@ -1,0 +1,13 @@
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\bin\Debug\netcoreapp3.1\Store.Homework.exe
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\bin\Debug\netcoreapp3.1\Store.Homework.deps.json
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\bin\Debug\netcoreapp3.1\Store.Homework.runtimeconfig.json
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\bin\Debug\netcoreapp3.1\Store.Homework.runtimeconfig.dev.json
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\bin\Debug\netcoreapp3.1\Store.Homework.dll
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\bin\Debug\netcoreapp3.1\Store.Homework.pdb
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.csprojAssemblyReference.cache
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.AssemblyInfoInputs.cache
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.AssemblyInfo.cs
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.csproj.CoreCompileInputs.cache
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.dll
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.pdb
+E:\programing\school\2nd\Object Oriented Programing\Store.Homework\Store.Homework\obj\Debug\netcoreapp3.1\Store.Homework.genruntimeconfig.cache
